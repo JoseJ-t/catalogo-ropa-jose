@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <!-- Header negro con acentos crema -->
+  <!-- Header dinámico con gradiente -->
   <header>
     <div class="header-inner">
       <a href="#" class="logo-link">
@@ -38,22 +38,22 @@
     </div>
   </header>
 
-  <!-- Sección Sobre Nativo con iglesia de fondo -->
+  <!-- Sección Sobre Nativo con overlay en imagen -->
   <section class="about">
-    <div class="about-bg">
-      <img src="icons/iglesia.png" alt="Basílica de San Juan de los Lagos" class="about-image" loading="lazy">
-    </div>
     <div class="about-content">
-      <h2>Sobre Nativo</h2>
-      <p>Somos revendedores apasionados por traer la moda contemporánea a San Juan de los Lagos, Jalisco. Nuestras camisas boxy fit de 240g de algodón premium llegan directamente de proveedores confiables, ofreciendo comodidad, durabilidad y estilo único. Entregas rápidas en moto, pago al recibir.</p>
+      <img src="icons/iglesiabla.png" alt="Basílica de San Juan de los Lagos" class="about-image" loading="lazy">
+      <div class="about-overlay">
+        <h2>Sobre Nativo</h2>
+        <p>Somos revendedores apasionados por traer la moda contemporánea a San Juan de los Lagos, Jalisco. Nuestras camisas boxy fit de 240g de algodón premium llegan directamente de proveedores confiables, ofreciendo comodidad, durabilidad y estilo único. Entregas rápidas en moto, pago al recibir.</p>
+      </div>
     </div>
   </section>
 
   <main class="container">
     <section class="products">
       <h2 class="products-title">Nuestras Camisas</h2>
-      <div class="products-grid">
-        <article class="product-card">
+      <div class="products-slider">
+        <div class="product-card">
           <div class="product-image">
             <img src="https://images.pexels.com/photos/8217536/pexels-photo-8217536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Camisa Nativo Blanca" loading="lazy">
           </div>
@@ -66,8 +66,8 @@
               Pedir por WhatsApp
             </a>
           </div>
-        </article>
-        <article class="product-card">
+        </div>
+        <div class="product-card">
           <div class="product-image">
             <img src="https://images.pexels.com/photos/6786611/pexels-photo-6786611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Camisa Nativo Arena" loading="lazy">
           </div>
@@ -80,9 +80,11 @@
               Pedir por WhatsApp
             </a>
           </div>
-        </article>
+        </div>
         <!-- Agrega más productos aquí -->
       </div>
+      <button class="slider-btn prev">&lt;</button>
+      <button class="slider-btn next">&gt;</button>
     </section>
   </main>
 
@@ -102,6 +104,22 @@
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
         window.open(url, '_blank');
       });
+    });
+
+    // Slider simple para productos
+    const slider = document.querySelector('.products-slider');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let scrollAmount = 0;
+
+    nextBtn.addEventListener('click', () => {
+      scrollAmount += 320;
+      slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+      scrollAmount -= 320;
+      slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
     });
   </script>
 </body>

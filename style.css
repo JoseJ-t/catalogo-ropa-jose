@@ -1,12 +1,10 @@
-/* Variables: colores de marca resaltan, crema y grises complementan */
+/* Variables con colores base prominentes */
 :root {
   --color-rojo: #d32f2f;
   --color-negro: #000000;
   --color-blanco: #ffffff;
-  --color-crema: #f5f5dc;
-  --color-gris-claro: #e0e0e0;
-  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease;
+  --shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Más agresivo */
 }
 
 * {
@@ -17,24 +15,41 @@
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background: var(--color-crema);
-  color: var(--color-negro);
-  line-height: 1.6;
+  background: var(--color-negro);
+  color: var(--color-blanco);
+  line-height: 1.5;
+  overflow-x: hidden; /* Evita scroll horizontal */
 }
 
-/* Header negro con gradiente crema */
+/* Animaciones de entrada agresivas */
+@keyframes fadeInRotate {
+  from {
+    opacity: 0;
+    transform: translateY(50px) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInRotate 1s ease-out;
+}
+
+/* Header con gradiente negro-rojo */
 header {
-  background: linear-gradient(135deg, var(--color-negro) 0%, var(--color-crema) 100%);
-  padding: 1.2rem 2rem;
+  background: linear-gradient(135deg, var(--color-negro) 0%, var(--color-rojo) 100%);
+  padding: 1.5rem 2rem;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: var(--shadow-light);
-  border-bottom: 2px solid var(--color-rojo);
+  box-shadow: var(--shadow-dark);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); /* Forma irregular */
 }
 
 .header-inner {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -43,26 +58,26 @@ header {
 }
 
 .logo {
-  max-width: 75px;
+  max-width: 80px;
   height: auto;
-  filter: drop-shadow(0 0 5px rgba(211, 47, 47, 0.3)); /* Resalta rojo */
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); /* Brillo blanco */
 }
 
 .brand-name h1 {
-  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 700;
   color: var(--color-blanco);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .brand-name p {
-  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
-  color: var(--color-gris-claro);
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: #cccccc;
 }
 
 .social-links {
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 .social-link {
@@ -75,157 +90,157 @@ header {
 }
 
 .social-link:hover {
-  transform: translateY(-5px);
-  color: var(--color-rojo);
+  transform: scale(1.2) rotate(10deg);
 }
 
 .social-icon {
-  width: 18px;
-  height: 18px;
-  margin-bottom: 0.2rem;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 0.3rem;
 }
 
 .social-text {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   opacity: 0.9;
 }
 
-/* Sección Sobre Nativo con iglesia de fondo */
+/* Sección Sobre Nativo con overlay */
 .about {
   position: relative;
-  height: 70vh;
+  height: 60vh;
   overflow: hidden;
   background: var(--color-negro);
 }
 
-.about-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
+.about-content {
+  position: relative;
   width: 100%;
   height: 100%;
-  z-index: 1;
 }
 
 .about-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.6;
+  filter: brightness(0.4) contrast(1.2); /* Oscurecida para overlay */
 }
 
-.about-content {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
+.about-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
   color: var(--color-blanco);
-  background: rgba(211, 47, 47, 0.9); /* Rojo semi-transparente para resaltar */
-  border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  margin-top: 10vh;
+  z-index: 10;
+  max-width: 600px;
+  padding: 2rem;
+  background: rgba(211, 47, 47, 0.8); /* Overlay rojo semi-transparente */
+  border-radius: 10px;
+  box-shadow: var(--shadow-dark);
 }
 
-.about-content h2 {
-  font-size: 2.2rem;
+.about-overlay h2 {
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: var(--color-blanco);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.about-content p {
-  font-size: 1.1rem;
+.about-overlay p {
+  font-size: 1.2rem;
   line-height: 1.8;
   color: var(--color-blanco);
 }
 
 /* Móvil para about */
 @media (max-width: 768px) {
-  .about-content {
-    padding: 2rem 1rem;
-    margin-top: 5vh;
+  .about-overlay {
+    padding: 1rem;
   }
-  .about-content h2 {
-    font-size: 1.8rem;
+  .about-overlay h2 {
+    font-size: 2rem;
   }
-  .about-content p {
+  .about-overlay p {
     font-size: 1rem;
   }
 }
 
-/* Contenedor y productos */
+/* Contenedor y productos en slider */
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
 .products {
-  padding: 4rem 0 5rem;
+  padding: 4rem 0;
+  position: relative;
 }
 
 .products-title {
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--color-rojo);
-  margin-bottom: 3rem;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
+.products-slider {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 1rem;
 }
 
 .product-card {
+  min-width: 300px;
   background: var(--color-blanco);
-  border-radius: 12px;
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: var(--shadow-light);
+  box-shadow: var(--shadow-dark);
   transition: var(--transition);
-  border: 2px solid var(--color-gris-claro);
+  transform: rotate(-2deg); /* Ligero tilt */
 }
 
 .product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 35px rgba(211, 47, 47, 0.2);
-  border-color: var(--color-rojo);
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 10px 40px rgba(211, 47, 47, 0.4);
 }
 
 .product-image img {
   width: 100%;
-  height: 220px;
+  height: 250px;
   object-fit: cover;
 }
 
 .product-details {
   padding: 1.5rem;
   text-align: center;
+  background: var(--color-blanco);
+  color: var(--color-negro);
 }
 
 .product-details h3 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.8rem;
-  color: var(--color-negro);
+  color: var(--color-rojo);
 }
 
 .desc {
   font-size: 0.95rem;
   color: #666666;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .price {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--color-rojo);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .btn-whatsapp {
@@ -234,58 +249,98 @@ header {
   gap: 0.6rem;
   background: var(--color-rojo);
   color: var(--color-blanco);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
   padding: 0.9rem 1.8rem;
-  border-radius: 8px;
+  border-radius: 25px;
   text-decoration: none;
   transition: var(--transition);
-  box-shadow: 0 3px 10px rgba(211, 47, 47, 0.3);
+  box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
 }
 
 .btn-whatsapp:hover {
   background: #b71c1c;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+  transform: translateY(-3px) rotate(5deg);
+  box-shadow: 0 8px 25px rgba(211, 47, 47, 0.5);
 }
 
 .whatsapp-icon {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-rojo);
+  color: var(--color-blanco);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-dark);
+}
+
+.slider-btn:hover {
+  background: #b71c1c;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+  left: -25px;
+}
+
+.next {
+  right: -25px;
 }
 
 /* Móvil */
 @media (max-width: 768px) {
-  .products-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .products-slider {
+    gap: 1rem;
   }
-  header {
-    padding: 1rem 1.5rem;
+  .product-card {
+    min-width: 250px;
   }
-  .logo {
-    max-width: 65px;
+  .slider-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
   }
-  .brand-name h1 {
-    font-size: 1.8rem;
+  .prev {
+    left: -20px;
   }
-  .brand-name p {
-    font-size: 0.85rem;
-  }
-  .social-links {
-    gap: 0.8rem;
+  .next {
+    right: -20px;
   }
 }
 
 footer {
   text-align: center;
   padding: 3rem 1rem 4rem;
-  background: var(--color-crema);
-  color: var(--color-negro);
-  font-size: 0.95rem;
-  border-top: 2px solid var(--color-rojo);
+  background: linear-gradient(135deg, var(--color-negro) 0%, var(--color-rojo) 100%);
+  color: var(--color-blanco);
+  font-size: 1rem;
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.05) 10px, rgba(255, 255, 255, 0.05) 20px);
+  pointer-events: none;
 }
 
 footer p {
+  position: relative;
+  z-index: 1;
   margin: 0.5rem 0;
 }
