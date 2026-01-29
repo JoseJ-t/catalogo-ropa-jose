@@ -281,7 +281,7 @@ body {
 }
 
 .product-card {
-  min-width: 300px;
+  min-width: 300px; /* Ancho base, se ajusta en desktop */
   background: var(--color-blanco);
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -303,7 +303,7 @@ body {
 
 .product-image img {
   width: 100%;
-  height: 250px;
+  height: 200px; /* Altura reducida para menos espacio vertical */
   object-fit: cover;
 }
 
@@ -358,7 +358,7 @@ body {
   height: 18px;
 }
 
-/* Desktop: Slider horizontal */
+/* Desktop: Tarjetas más anchas y menos altas */
 @media (min-width: 1024px) {
   .products h2 {
     font-size: 3rem;
@@ -367,8 +367,11 @@ body {
   .products-grid {
     gap: 3rem;
   }
+  .product-card {
+    min-width: 400px; /* Más ancho para ocupar pantalla */
+  }
   .product-image img {
-    height: 300px;
+    height: 250px; /* Menos altura vertical */
   }
   .product-details h3 {
     font-size: 1.8rem;
@@ -385,7 +388,7 @@ body {
   }
 }
 
-/* Tablets: Grid de 2 columnas */
+/* Tablets: Grid de 2 columnas con tarjetas anchas */
 @media (min-width: 768px) and (max-width: 1023px) {
   .products-slider {
     display: block;
@@ -403,9 +406,12 @@ body {
   .product-card {
     min-width: unset;
   }
+  .product-image img {
+    height: 180px; /* Altura reducida */
+  }
 }
 
-/* Móvil: Grid de 1 columna */
+/* Móvil: Grid de 1 columna con tarjetas anchas */
 @media (max-width: 768px) {
   .products-slider {
     display: block;
@@ -424,7 +430,7 @@ body {
     min-width: unset;
   }
   .product-image img {
-    height: 200px;
+    height: 180px; /* Altura reducida */
   }
   .product-details h3 {
     font-size: 1.3rem;
