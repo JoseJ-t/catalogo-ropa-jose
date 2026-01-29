@@ -4,7 +4,7 @@
   --color-negro: #000000;
   --color-blanco: #ffffff;
   --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --transition: all 0.2s ease; /* Más rápido para modernidad */
+  --transition: all 0.2s ease;
 }
 
 * {
@@ -17,33 +17,33 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   background: var(--color-blanco);
   color: var(--color-negro);
-  line-height: 1.5; /* Más compacto */
+  line-height: 1.5;
 }
 
-/* Header compacto y relevante: barra negra delgada */
+/* Header compacto */
 header {
   background: var(--color-negro);
-  padding: 0.8rem 1.5rem; /* Menos padding para no estirar */
+  padding: 0.8rem 1.5rem;
   position: sticky;
   top: 0;
   z-index: 100;
   box-shadow: var(--shadow-light);
-  border-bottom: 1px solid #333; /* Línea sutil para definición */
+  border-bottom: 1px solid #333;
 }
 
 .header-inner {
-  max-width: 1000px; /* Más compacto */
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem; /* Menos gap */
+  gap: 0.5rem;
 }
 
 .logo {
-  max-width: 70px; /* Mucho más pequeño */
+  max-width: 70px;
   height: auto;
-  filter: brightness(0) invert(1); /* Blanco sobre negro */
+  filter: brightness(0) invert(1);
 }
 
 .brand-name {
@@ -53,37 +53,97 @@ header {
 }
 
 .brand-name h1 {
-  font-size: clamp(1.2rem, 3vw, 2rem); /* Más pequeño */
+  font-size: clamp(1.2rem, 3vw, 2rem);
   font-weight: 700;
   color: var(--color-blanco);
   margin-bottom: 0.1rem;
 }
 
 .brand-name p {
-  font-size: clamp(0.75rem, 1.5vw, 0.85rem); /* Compacto */
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
   color: #cccccc;
   font-weight: 300;
 }
 
 .social-links {
   display: flex;
-  gap: 0.5rem; /* Cercanos */
+  gap: 1rem; /* Más gap para texto */
 }
 
-.social-icon {
-  width: 16px; /* Muy pequeño y sutil */
-  height: 16px;
-  filter: brightness(0) invert(1); /* Blanco */
-  opacity: 0.7; /* Sutil por defecto */
+.social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-blanco);
   transition: var(--transition);
 }
 
-.social-icon:hover {
-  opacity: 1; /* Se hace visible al hover */
-  transform: scale(1.05); /* Hover mínimo */
+.social-link:hover {
+  opacity: 0.8;
 }
 
-/* Contenedor y productos eficientes */
+.social-icon {
+  width: 18px; /* Un poco más grande para visibilidad */
+  height: 18px;
+  filter: brightness(0) invert(1);
+  margin-bottom: 0.2rem;
+}
+
+.social-text {
+  font-size: 0.7rem; /* Texto pequeño debajo */
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* Nuevo panel: Sobre Nativo */
+.about {
+  background: var(--color-blanco);
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.about-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-image {
+  width: 200px;
+  height: auto;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+.about-text h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-negro);
+}
+
+.about-text p {
+  font-size: 1rem;
+  color: #666666;
+  line-height: 1.6;
+}
+
+/* Móvil para about */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-image {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Contenedor y productos */
 .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -92,12 +152,12 @@ header {
 
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Más columnas para eficiencia */
-  gap: 1.5rem; /* Menos gap */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
   padding: 2rem 0 4rem;
 }
 
-/* Móvil: 1 columna */
+/* Móvil */
 @media (max-width: 768px) {
   .products {
     grid-template-columns: 1fr;
@@ -114,6 +174,9 @@ header {
   }
   .brand-name p {
     font-size: 0.8rem;
+  }
+  .social-links {
+    gap: 0.8rem;
   }
 }
 
