@@ -3,154 +3,163 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Catálogo San Juan - Camisas Corte Boxy Fit</title>
+  <title>Catálogo Ropa José - San Juan</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8f9fa; /* Gris muy claro, limpio */
       color: #333;
+      line-height: 1.6;
     }
     header {
-      background: #222;
+      background: #25D366; /* Verde WhatsApp */
       color: white;
       text-align: center;
-      padding: 1.5rem;
+      padding: 2rem 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     header h1 {
-      margin: 0;
-      font-size: 2rem;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
     }
-    .intro {
-      text-align: center;
-      padding: 1rem;
-      background: #fff;
-      margin-bottom: 1rem;
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
     }
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 1rem;
+      padding: 2rem 1rem;
+    }
+    .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem; /* Mucho espacio entre cards */
     }
     .product-card {
       background: white;
-      border-radius: 10px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     .product-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
     }
     .product-img {
       width: 100%;
-      height: 300px;
+      height: 380px; /* Fotos grandes */
       object-fit: cover;
     }
     .product-info {
-      padding: 1rem;
+      padding: 1.8rem 1.5rem;
       text-align: center;
     }
     .product-info h3 {
-      margin: 0.5rem 0;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: #222;
+    }
+    .description {
+      font-size: 1.05rem;
+      color: #555;
+      margin-bottom: 1rem;
     }
     .price {
-      font-size: 1.4rem;
-      color: #e91e63;
+      font-size: 1.8rem;
       font-weight: bold;
-      margin: 0.5rem 0;
+      color: #25D366; /* Verde WhatsApp */
+      margin: 1rem 0;
     }
     .btn-whatsapp {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
       background: #25D366;
       color: white;
-      padding: 0.8rem 1.5rem;
+      font-size: 1.15rem;
+      font-weight: bold;
+      padding: 1rem 2rem;
       border-radius: 50px;
       text-decoration: none;
-      font-weight: bold;
-      margin-top: 0.8rem;
-      transition: background 0.3s;
+      transition: background 0.3s ease;
+      margin-top: 1rem;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
     }
     .btn-whatsapp:hover {
       background: #128C7E;
     }
+    .whatsapp-icon {
+      font-size: 1.4rem;
+    }
     footer {
       text-align: center;
-      padding: 1.5rem;
+      padding: 2rem 1rem;
       background: #222;
       color: white;
-      margin-top: 2rem;
+      font-size: 0.95rem;
+      margin-top: 3rem;
+    }
+
+    /* Responsividad extra para celulares pequeños */
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.8rem; }
+      .product-img { height: 320px; }
+      .product-info { padding: 1.5rem 1rem; }
+      .price { font-size: 1.6rem; }
+      .btn-whatsapp { font-size: 1.05rem; padding: 0.9rem 1.8rem; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Catálogo San Juan</h1>
-    <p>Entregas a Domicilio - San Juan y alrededores</p>
+    <h1>Catálogo Ropa José</h1>
+    <p>Entregas en moto - San Juan y alrededores | Pago en efectivo al recibir</p>
   </header>
 
-  <div class="intro">
-    <h2>¡Mira lo que traemos esta semana!</h2>
-    <p>Elige tu prenda favorita y pídelo directo por WhatsApp. Precios al día y stock actualizado.</p>
-  </div>
+  <div class="container">
+    <div class="products" id="products">
 
-  <div class="container" id="products">
-    <!-- Ejemplo de producto 1 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="Playera Negra" class="product-img">
-      <div class="product-info">
-        <h3>Playera Negra Básica</h3>
-        <p>Tallas: S - M - L - XL</p>
-        <div class="price">$250</div>
-        <a href="#" class="btn-whatsapp" data-product="Playera Negra Básica - Talla M">Pedir por WhatsApp</a>
+      <!-- Ejemplo de producto - copia este bloque para cada prenda -->
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254?w=800" alt="Playera Negra" class="product-img">
+        <div class="product-info">
+          <h3>Playera Negra Básica</h3>
+          <p class="description">Algodón suave, cómoda para todo el día<br>Tallas: S - M - L - XL</p>
+          <div class="price">$250</div>
+          <a href="#" class="btn-whatsapp" data-product="Playera Negra Básica - $250">
+            <span class="whatsapp-icon">💬</span> Pedir por WhatsApp
+          </a>
+        </div>
       </div>
+
+      <!-- Agrega aquí más productos copiando el bloque de arriba -->
+
     </div>
-
-    <!-- Ejemplo de producto 2 -->
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254?w=600" alt="Jeans Azul" class="product-img">
-      <div class="product-info">
-        <h3>Jeans Slim Azul</h3>
-        <p>Tallas: 28 - 30 - 32 - 34</p>
-        <div class="price">$450</div>
-        <a href="#" class="btn-whatsapp" data-product="Jeans Slim Azul - Talla 32">Pedir por WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Agrega aquí más productos copiando el bloque de arriba -->
-    <!-- <div class="product-card"> ... </div> -->
-
   </div>
 
   <footer>
-    <p>📍 Entregas rápidas en San Juan | WhatsApp: +52 395 102 4699</p>
-    <p>Hecho con ❤️ por ti mismo</p>
+    <p>📍 San Juan, Jalisco | Entregas rápidas | WhatsApp: tu número</p>
+    <p>Hecho para vender fácil y rápido</p>
   </footer>
 
   <script>
-    const phoneNumber = "395 102 4699"; 
+    const phoneNumber = "52TU-NUMERO-SIN-ESPACIOS"; // Ej: 523312345678
 
-    // Selecciona todos los botones
     document.querySelectorAll('.btn-whatsapp').forEach(button => {
       button.addEventListener('click', function(e) {
         e.preventDefault();
-        
-        // Obtiene el nombre del producto desde el atributo data-product
         const productName = this.getAttribute('data-product');
-        
-        // Mensaje prellenado (puedes personalizarlo)
-        const message = `Hola! 😊 Quiero pedir: *${productName}*\nViene del catálogo San Juan.\n¿Me confirmas disponibilidad y costo de envío?`;
-        
-        // Crea el link de WhatsApp
+        const message = `Hola José! 😊 Quiero pedir:\n*${productName}*\nPago en efectivo al recibir.\n¿Disponible hoy o mañana? ¿En cuánto tiempo puedes entregar en San Juan?`;
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        
-        // Abre el chat
         window.open(whatsappUrl, '_blank');
       });
     });
