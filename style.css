@@ -13,12 +13,18 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 100%;
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background: var(--color-negro);
   color: var(--color-blanco);
   line-height: 1.5;
   overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* Animaciones de entrada agresivas */
@@ -60,7 +66,7 @@ header {
 .logo {
   max-width: 80px;
   height: auto;
-  filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)); /* Iluminado para resaltar blanco y rojo */
+  filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
 }
 
 .brand-name h1 {
@@ -104,36 +110,83 @@ header {
   opacity: 0.9;
 }
 
-/* Móvil: header apilado para que no se corte */
+/* ────────────────────────────────────────────────
+   MEDIA QUERIES - MÓVIL
+───────────────────────────────────────────────── */
 @media (max-width: 768px) {
   header {
-    padding: 1rem;
-    clip-path: none; /* Sin forma irregular en móvil para simplicidad */
+    padding: 1rem 1.2rem;
+    clip-path: none;
   }
+
   .header-inner {
     flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
-  }
-  .logo {
-    max-width: 60px;
-  }
-  .brand-name h1 {
-    font-size: 1.8rem;
-  }
-  .brand-name p {
-    font-size: 0.9rem;
-  }
-  .social-links {
     gap: 1rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .logo {
+    max-width: 70px;
+    margin-bottom: 0.5rem;
+  }
+
+  .brand-name {
+    margin: 0.5rem 0;
+  }
+
+  .brand-name h1 {
+    font-size: 2rem;
+  }
+
+  .brand-name p {
+    font-size: 0.95rem;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .social-links {
+    flex-direction: row;
+    gap: 1.5rem;
     justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
   }
+
+  .social-link {
+    flex: 1 1 auto;
+    min-width: 60px;
+  }
+
   .social-icon {
-    width: 18px;
-    height: 18px;
+    width: 28px;
+    height: 28px;
+    margin-bottom: 0.4rem;
   }
+
   .social-text {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* En pantallas muy angostas (como algunos móviles en portrait) → solo íconos */
+@media (max-width: 480px) {
+  .social-text {
+    display: none;
+  }
+
+  .social-links {
+    gap: 2.5rem;
+    justify-content: space-evenly;
+  }
+
+  .social-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .social-link {
+    min-width: auto;
   }
 }
 
@@ -186,7 +239,6 @@ header {
   color: var(--color-blanco);
 }
 
-/* Móvil para about */
 @media (max-width: 768px) {
   .about-overlay {
     padding: 1rem;
@@ -331,7 +383,6 @@ header {
   right: -25px;
 }
 
-/* Móvil */
 @media (max-width: 768px) {
   .products-slider {
     gap: 1rem;
