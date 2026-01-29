@@ -11,42 +11,38 @@
 </head>
 <body>
 
-  <!-- Header Moderno y Minimalista -->
+  <!-- Header Simplificado: Logo y Iconos Sociales -->
   <header class="header">
     <div class="header-container">
       <a href="#" class="logo-link">
         <img src="icons/logoimpreso.png" alt="Logo Nativo" class="logo">
       </a>
-      <nav class="nav">
-        <button class="menu-toggle" aria-label="Abrir menú">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <ul class="nav-list">
-          <li><a href="#hero">Inicio</a></li>
-          <li><a href="#products">Productos</a></li>
-          <li><a href="https://instagram.com/nativo.st" target="_blank">Instagram</a></li>
-          <li><a href="https://facebook.com/Nativo" target="_blank">Facebook</a></li>
-          <li><a href="https://wa.me/52TU-NUMERO-SIN-ESPACIOS" target="_blank">WhatsApp</a></li>
-        </ul>
-      </nav>
+      <div class="social-icons">
+        <a href="https://instagram.com/nativo.st" target="_blank" rel="noopener" aria-label="Instagram Nativo" class="social-link">
+          <img src="icons/instagram.png" alt="Instagram" class="social-icon">
+        </a>
+        <a href="https://facebook.com/Nativo" target="_blank" rel="noopener" aria-label="Facebook Nativo" class="social-link">
+          <img src="icons/facebook.png" alt="Facebook" class="social-icon">
+        </a>
+        <a href="https://wa.me/52TU-NUMERO-SIN-ESPACIOS" target="_blank" rel="noopener" aria-label="WhatsApp Nativo" class="social-link">
+          <img src="icons/whatsapp.png" alt="WhatsApp" class="social-icon">
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Sección Hero: Imagen de fondo con overlay minimalista -->
+  <!-- Sección Hero: Sin botón, más minimalista -->
   <section id="hero" class="hero">
     <div class="hero-overlay">
       <div class="hero-content">
         <h1>Nativo</h1>
         <p>Camisas boxy fit · 240 gramos · Esencia de San Juan de los Lagos</p>
         <p>Somos revendedores apasionados por traer la moda contemporánea a San Juan de los Lagos, Jalisco. Nuestras camisas de algodón premium ofrecen comodidad, durabilidad y estilo único. Entregas rápidas en moto, pago al recibir.</p>
-        <a href="#products" class="btn-primary">Ver Productos</a>
       </div>
     </div>
   </section>
 
-  <!-- Sección Productos: Grid moderno con animaciones -->
+  <!-- Sección Productos: Sin cambios -->
   <section id="products" class="products">
     <div class="container">
       <h2>Nuestras Camisas</h2>
@@ -84,7 +80,7 @@
     </div>
   </section>
 
-  <!-- Footer Minimalista con Gradiente -->
+  <!-- Footer Sin Cambios -->
   <footer class="footer">
     <div class="container">
       <p>Nativo · Orgullosamente de San Juan de los Lagos, Jalisco</p>
@@ -94,14 +90,6 @@
 
   <script>
     const phoneNumber = "52TU-NUMERO-SIN-ESPACIOS"; // ¡Cámbialo por tu número real!
-
-    // Menú hamburguesa
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navList = document.querySelector('.nav-list');
-    menuToggle.addEventListener('click', () => {
-      navList.classList.toggle('active');
-      menuToggle.classList.toggle('active');
-    });
 
     // WhatsApp
     document.querySelectorAll('.btn-whatsapp').forEach(btn => {

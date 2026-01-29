@@ -26,7 +26,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Header Moderno */
+/* Header Simplificado: Logo centrado, iconos a la derecha */
 .header {
   position: fixed;
   top: 0;
@@ -51,85 +51,56 @@ body {
   height: auto;
 }
 
-.nav {
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
   display: flex;
   align-items: center;
-}
-
-.nav-list {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-
-.nav-list a {
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-blanco);
+  border-radius: 50%;
+  box-shadow: var(--shadow-light);
+  transition: var(--transition);
   text-decoration: none;
-  color: var(--color-negro);
-  font-weight: 500;
-  transition: var(--transition);
 }
 
-.nav-list a:hover {
-  color: var(--color-rojo);
+.social-link:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-hover);
 }
 
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
+.social-icon {
+  width: 20px;
+  height: 20px;
 }
 
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: var(--color-negro);
-  margin: 3px 0;
-  transition: var(--transition);
-}
-
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
-}
-
-/* Móvil: Menú hamburguesa */
+/* Móvil: Iconos más pequeños y alineados */
 @media (max-width: 768px) {
-  .nav-list {
-    position: fixed;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 0;
-    background: var(--color-blanco);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    transition: height 0.3s ease;
+  .header-container {
+    padding: 0.8rem 1rem;
   }
-  .nav-list.active {
-    height: 50vh;
+  .logo {
+    max-width: 50px;
   }
-  .menu-toggle {
-    display: flex;
+  .social-icons {
+    gap: 0.8rem;
   }
-  .nav-list a {
-    font-size: 1.2rem;
-    padding: 1rem;
+  .social-link {
+    width: 35px;
+    height: 35px;
+  }
+  .social-icon {
+    width: 18px;
+    height: 18px;
   }
 }
 
-/* Sección Hero */
+/* Sección Hero: Sin botón, más limpia */
 .hero {
   height: 100vh;
   background: url('icons/iglesia.png') center/cover no-repeat;
@@ -162,23 +133,6 @@ body {
   color: var(--color-gris-claro);
   max-width: 600px;
   margin: 0 auto 2rem;
-}
-
-.btn-primary {
-  background: var(--color-rojo);
-  color: var(--color-blanco);
-  padding: 1rem 2rem;
-  border-radius: var(--border-radius);
-  text-decoration: none;
-  font-weight: 600;
-  transition: var(--transition);
-  box-shadow: var(--shadow-light);
-}
-
-.btn-primary:hover {
-  background: var(--color-rojo-claro);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-hover);
 }
 
 /* Móvil: Hero más compacto */
