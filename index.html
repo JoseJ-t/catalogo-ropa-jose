@@ -134,12 +134,12 @@
       btn.addEventListener('click', e => {
         e.preventDefault();
         const product = btn.getAttribute('data-product');
-        const text = `Hola Nativo 👋\nQuiero la:\n${product}\n¿Tallas disponibles? ¿Cuándo entregan en San Juan?`;
+        const imageUrl = btn.getAttribute('data-image'); // Nueva línea: Obtiene la URL de la imagen
+        const text = `Hola Nativo 👋\nQuiero la:\n${product}\nVer imagen del producto: ${imageUrl}\n¿Tallas disponibles? ¿Cuándo entregan en San Juan?`; // Agregado el enlace a la imagen
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
         window.open(url, '_blank');
       });
     });
-
     // Parallax en hero (solo desktop)
     if (window.innerWidth > 1024) {
       window.addEventListener('scroll', () => {
