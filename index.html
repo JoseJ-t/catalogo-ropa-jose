@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo San Juan - Camisas Corte Boxy Fit</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .intro {
+      text-align: center;
+      padding: 1rem;
+      background: #fff;
+      margin-bottom: 1rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 1rem;
+      text-align: center;
+    }
+    .product-info h3 {
+      margin: 0.5rem 0;
+      font-size: 1.3rem;
+    }
+    .price {
+      font-size: 1.4rem;
+      color: #e91e63;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+    .btn-whatsapp {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 0.8rem;
+      transition: background 0.3s;
+    }
+    .btn-whatsapp:hover {
+      background: #128C7E;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #222;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Catálogo San Juan</h1>
+    <p>Entregas a Domicilio - San Juan y alrededores</p>
+  </header>
+
+  <div class="intro">
+    <h2>¡Mira lo que traemos esta semana!</h2>
+    <p>Elige tu prenda favorita y pídelo directo por WhatsApp. Precios al día y stock actualizado.</p>
+  </div>
+
+  <div class="container" id="products">
+    <!-- Ejemplo de producto 1 -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="Playera Negra" class="product-img">
+      <div class="product-info">
+        <h3>Playera Negra Básica</h3>
+        <p>Tallas: S - M - L - XL</p>
+        <div class="price">$250</div>
+        <a href="#" class="btn-whatsapp" data-product="Playera Negra Básica - Talla M">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Ejemplo de producto 2 -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254?w=600" alt="Jeans Azul" class="product-img">
+      <div class="product-info">
+        <h3>Jeans Slim Azul</h3>
+        <p>Tallas: 28 - 30 - 32 - 34</p>
+        <div class="price">$450</div>
+        <a href="#" class="btn-whatsapp" data-product="Jeans Slim Azul - Talla 32">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Agrega aquí más productos copiando el bloque de arriba -->
+    <!-- <div class="product-card"> ... </div> -->
+
+  </div>
+
+  <footer>
+    <p>📍 Entregas rápidas en San Juan | WhatsApp: +52 395 102 4699</p>
+    <p>Hecho con ❤️ por ti mismo</p>
+  </footer>
+
+  <script>
+    const phoneNumber = "395 102 4699"; 
+
+    // Selecciona todos los botones
+    document.querySelectorAll('.btn-whatsapp').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Obtiene el nombre del producto desde el atributo data-product
+        const productName = this.getAttribute('data-product');
+        
+        // Mensaje prellenado (puedes personalizarlo)
+        const message = `Hola! 😊 Quiero pedir: *${productName}*\nViene del catálogo San Juan.\n¿Me confirmas disponibilidad y costo de envío?`;
+        
+        // Crea el link de WhatsApp
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        
+        // Abre el chat
+        window.open(whatsappUrl, '_blank');
+      });
+    });
+  </script>
+
+</body>
+</html>
