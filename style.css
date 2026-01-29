@@ -1,11 +1,10 @@
-/* Variables para eficiencia y facilidad de cambio */
+/* Variables para eficiencia */
 :root {
   --color-rojo: #d32f2f;
   --color-negro: #000000;
   --color-blanco: #ffffff;
-  --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
-  --transition: all 0.3s ease;
+  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --transition: all 0.2s ease; /* Más rápido para modernidad */
 }
 
 * {
@@ -14,164 +13,121 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth; /* Scroll suave para navegación moderna */
-}
-
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background: var(--color-blanco);
   color: var(--color-negro);
-  line-height: 1.6;
+  line-height: 1.5; /* Más compacto */
 }
 
-/* Header minimalista: negro con blanco */
+/* Header compacto y relevante: barra negra delgada */
 header {
   background: var(--color-negro);
-  padding: 1rem 2rem;
+  padding: 0.8rem 1.5rem; /* Menos padding para no estirar */
   position: sticky;
   top: 0;
   z-index: 100;
   box-shadow: var(--shadow-light);
+  border-bottom: 1px solid #333; /* Línea sutil para definición */
 }
 
 .header-inner {
-  max-width: 1200px; /* Más eficiente, menos ancho */
+  max-width: 1000px; /* Más compacto */
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem; /* Menos gap */
 }
 
 .logo {
-  max-width: 100px;
+  max-width: 70px; /* Mucho más pequeño */
   height: auto;
-  filter: brightness(0) invert(1); /* Logo blanco sobre negro */
+  filter: brightness(0) invert(1); /* Blanco sobre negro */
 }
 
 .brand-name {
   flex: 1;
   text-align: center;
-  min-width: 200px;
+  min-width: 150px;
 }
 
 .brand-name h1 {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(1.2rem, 3vw, 2rem); /* Más pequeño */
   font-weight: 700;
   color: var(--color-blanco);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
 }
 
 .brand-name p {
-  font-size: clamp(0.85rem, 2vw, 0.95rem);
-  color: #cccccc; /* Gris claro para contraste */
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem); /* Compacto */
+  color: #cccccc;
   font-weight: 300;
 }
 
 .social-links {
   display: flex;
-  gap: 0.8rem;
+  gap: 0.5rem; /* Cercanos */
 }
 
 .social-icon {
-  width: 20px; /* Más pequeño y minimalista */
-  height: 20px;
-  filter: brightness(0) invert(1); /* Iconos blancos */
+  width: 16px; /* Muy pequeño y sutil */
+  height: 16px;
+  filter: brightness(0) invert(1); /* Blanco */
+  opacity: 0.7; /* Sutil por defecto */
   transition: var(--transition);
 }
 
 .social-icon:hover {
-  transform: scale(1.1);
-}
-
-/* Nuevo: Hero section minimalista */
-.hero {
-  background: var(--color-blanco);
-  padding: 4rem 2rem;
-  text-align: center;
-  border-bottom: 1px solid #f0f0f0; /* Línea sutil */
-}
-
-.hero-content h2 {
-  font-size: clamp(2rem, 6vw, 3rem);
-  font-weight: 600;
-  color: var(--color-negro);
-  margin-bottom: 1rem;
-}
-
-.hero-content p {
-  font-size: 1.1rem;
-  color: #666666;
-  max-width: 600px;
-  margin: 0 auto 2rem;
-}
-
-.hero-cta {
-  display: inline-block;
-  background: var(--color-rojo);
-  color: var(--color-blanco);
-  padding: 0.8rem 2rem;
-  border-radius: 0; /* Minimalista: sin bordes redondeados */
-  text-decoration: none;
-  font-weight: 500;
-  transition: var(--transition);
-}
-
-.hero-cta:hover {
-  background: #b71c1c; /* Rojo más oscuro */
-  transform: translateY(-2px);
+  opacity: 1; /* Se hace visible al hover */
+  transform: scale(1.05); /* Hover mínimo */
 }
 
 /* Contenedor y productos eficientes */
 .container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
 
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Más eficiente para móviles */
-  gap: 2rem;
-  padding: 3rem 0 5rem;
-  animation: fadeIn 0.8s ease-in; /* Animación sutil al cargar */
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Más columnas para eficiencia */
+  gap: 1.5rem; /* Menos gap */
+  padding: 2rem 0 4rem;
 }
 
 /* Móvil: 1 columna */
 @media (max-width: 768px) {
   .products {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
   header {
-    padding: 1rem;
+    padding: 0.6rem 1rem;
   }
   .logo {
-    max-width: 80px;
+    max-width: 60px;
   }
-  .hero {
-    padding: 3rem 1rem;
+  .brand-name h1 {
+    font-size: 1.5rem;
+  }
+  .brand-name p {
+    font-size: 0.8rem;
   }
 }
 
 .product-card {
   background: var(--color-blanco);
-  border: 1px solid #f0f0f0; /* Borde sutil minimalista */
+  border: 1px solid #f0f0f0;
   overflow: hidden;
   box-shadow: var(--shadow-light);
   transition: var(--transition);
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .product-image img {
@@ -182,64 +138,64 @@ header {
 }
 
 .product-details {
-  padding: 1.5rem;
+  padding: 1.2rem;
   text-align: center;
 }
 
 .product-details h2 {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
 }
 
 .desc {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #666666;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .price {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--color-rojo);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .btn-whatsapp {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   background: var(--color-rojo);
   color: var(--color-blanco);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  padding: 0.9rem 1.8rem;
-  border-radius: 0; /* Minimalista */
+  padding: 0.8rem 1.5rem;
+  border-radius: 0;
   text-decoration: none;
   transition: var(--transition);
-  box-shadow: 0 2px 8px rgba(211, 47, 47, 0.2);
+  box-shadow: 0 2px 6px rgba(211, 47, 47, 0.2);
 }
 
 .btn-whatsapp:hover {
   background: #b71c1c;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(211, 47, 47, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
 }
 
 .whatsapp-icon {
-  width: 18px; /* Más pequeño */
-  height: 18px;
-  filter: brightness(0) invert(1); /* Blanco */
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
 }
 
 footer {
   text-align: center;
-  padding: 2rem 1rem 3rem;
+  padding: 1.5rem 1rem 2.5rem;
   background: var(--color-negro);
   color: var(--color-blanco);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 footer p {
-  margin: 0.3rem 0;
+  margin: 0.2rem 0;
 }
