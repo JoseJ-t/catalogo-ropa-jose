@@ -63,9 +63,19 @@ header {
 }
 
 .logo {
-  max-width: 80px;
-  height: auto;
-  filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+  max-width: 55px !important;
+  max-height: 55px !important;   /* ← clave si es cuadrado o casi */
+  object-fit: contain;
+  padding: 0;
+  margin: 8px auto 12px;         /* valores pequeños en px para precisión */
+}
+
+.header-inner {
+  gap: 0.4rem !important;        /* reduce aún más el espacio entre elementos */
+}
+
+.brand-name {
+  margin-top: 0;
 }
 
 .brand-name h1 {
