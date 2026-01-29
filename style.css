@@ -40,9 +40,9 @@ header {
 }
 
 .logo {
-  max-width: 60px;
+  max-width: 50px; /* Más pequeño para no arruinar el header */
   height: auto;
-  filter: brightness(1.2) drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+  filter: brightness(1.1) drop-shadow(0 0 3px rgba(255, 255, 255, 0.3)); /* Menos brillo para integración */
 }
 
 .brand-name h1 {
@@ -94,7 +94,7 @@ header {
     gap: 0.3rem;
   }
   .logo {
-    max-width: 50px;
+    max-width: 40px; /* Aún más pequeño en móvil */
   }
   .brand-name h1 {
     font-size: 1.5rem;
