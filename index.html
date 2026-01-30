@@ -2,204 +2,139 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nativo - Camisas Boxy Fit 240g</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Nativo · Boxy Fit 240g</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Header Simplificado: Logo centrado, iconos a la derecha -->
   <header class="header">
-    <div class="header-container">
-      <a href="#" class="logo-link">
-        <img src="icons/logoimpreso.png" alt="Logo Nativo" class="logo">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <img src="icons/logoimpreso.png" alt="Nativo">
       </a>
-      <div class="social-icons">
-        <a href="https://instagram.com/nativo.st" target="_blank" rel="noopener" aria-label="Instagram Nativo" class="social-link">
-          <img src="icons/instagram.png" alt="Instagram" class="social-icon">
+      <nav class="social">
+        <a href="https://instagram.com/nativo.st" target="_blank" aria-label="Instagram Nativo">
+          <img src="icons/instagram.png" alt="">
         </a>
-       <a href="https://www.facebook.com/people/Nativo/61586116301114/" target="_blank" rel="noopener" aria-label="Facebook Nativo" class="social-link">
-         <img src="icons/facebook.png" alt="Facebook" class="social-icon">
-       </a>
-        <a href="https://wa.me/52TU-NUMERO-SIN-ESPACIOS" target="_blank" rel="noopener" aria-label="WhatsApp Nativo" class="social-link">
-          <img src="icons/whatsapp.png" alt="WhatsApp" class="social-icon">
+        <a href="https://www.facebook.com/people/Nativo/61586116301114/" target="_blank" aria-label="Facebook Nativo">
+          <img src="icons/facebook.png" alt="">
         </a>
-      </div>
+        <a href="https://wa.me/523951024699" target="_blank" aria-label="WhatsApp Nativo">
+          <img src="icons/whatsapp.png" alt="">
+        </a>
+      </nav>
     </div>
   </header>
 
-  <!-- Sección Hero: Con parallax sutil -->
-  <section id="hero" class="hero">
-    <div class="hero-bg parallax"></div>
-    <div class="hero-overlay">
-      <div class="hero-content">
-        <h1>Nativo</h1>
-        <p>Camisas boxy fit · 240 gramos · Esencia de San Juan de los Lagos</p>
-        <p>Somos vendedores apasionados por traer la moda contemporánea a San Juan de los Lagos, Jalisco. Nuestras camisas de algodón premium ofrecen comodidad, durabilidad y estilo único. Entregas a Domicilio, pago al recibir.</p>
+  <section class="hero">
+    <div class="hero-media">
+      <picture>
+        <source media="(min-width: 481px)" srcset="icons/iglesia.png">
+        <img src="icons/iglesia.png" alt="Basílica San Juan de los Lagos" class="hero-img">
+      </picture>
+    </div>
+    <div class="hero-layer"></div>
+    <div class="hero-text-block">
+      <h1>Nativo</h1>
+      <div class="hero-meta">
+        <p class="tag">Boxy Fit 240 g</p>
+        <p class="location">San Juan de los Lagos</p>
       </div>
+      <p class="lead">Algodón premium. Corte contemporáneo.<br>Entrega a Domicilio. Pago al recibir.</p>
     </div>
   </section>
 
-  <!-- Sección Productos: Slider en desktop, grid en móvil -->
-  <section id="products" class="products">
-    <div class="container">
-      <h2>Nuestras Camisas</h2>
-      <div class="products-slider">
-        <button class="slider-btn prev" aria-label="Anterior">&larr;</button>
-        <div class="products-grid">
-          <div class="product-card fade-in">
-            <div class="product-image">
-              <img src="https://images.pexels.com/photos/8217536/pexels-photo-8217536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Camisa Nativo Blanca" loading="lazy">
-            </div>
-            <div class="product-details">
-              <h3>Camisa Blanca</h3>
-              <p>Boxy fit relajado · 240g algodón premium<br>Tallas: consulta disponibilidad por WhatsApp</p>
-              <p class="price">$480</p>
-              <a href="#" class="btn-whatsapp" data-product="Camisa Blanca Nativo - $480" data-image="https://images.pexels.com/photos/8217536/pexels-photo-8217536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
-                <img src="icons/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-                Pedir por WhatsApp
-              </a>
-            </div>
-          </div>
-          
-          <div class="product-card fade-in">
-            <div class="product-image">
-              <img src="https://images.pexels.com/photos/6786611/pexels-photo-6786611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Camisa Nativo Arena" loading="lazy">
-            </div>
-            <div class="product-details">
-              <h3>Camisa Arena</h3>
-              <p>Tono neutro premium · Corte boxy contemporáneo<br>Tallas: consulta disponibilidad por WhatsApp</p>
-              <p class="price">$480</p>
-              <a href="#" class="btn-whatsapp" data-product="Camisa Arena Nativo - $480">
-                <img src="icons/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-                Pedir por WhatsApp
-              </a>
-            </div>
-          </div>
+  <section class="collection">
+    <div class="collection-header">
+      <h2>Nuestras Piezas</h2>
+    </div>
+    <div class="items-grid">
 
-          <div class="product-card fade-in">
-            <div class="product-image">
-              <img src="https://images.pexels.com/photos/6786611/pexels-photo-6786611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Camisa Nativo Arena" loading="lazy">
-            </div>
-            <div class="product-details">
-              <h3>Camisa Arena</h3>
-              <p>Tono neutro premium · Corte boxy contemporáneo<br>Tallas: consulta disponibilidad por WhatsApp</p>
-              <p class="price">$480</p>
-              <a href="#" class="btn-whatsapp" data-product="Camisa Blanca Nativo - $480" data-image="https://images.pexels.com/photos/8217536/pexels-photo-8217536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
-                <img src="icons/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-                Pedir por WhatsApp
-              </a>
-            </div>
-          </div>
-
-          <div class="product-card fade-in">
-            <div class="product-image">
-              <img src="https://images.pexels.com/photos/6786611/pexels-photo-6786611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Camisa Nativo Arena" loading="lazy">
-            </div>
-            <div class="product-details">
-              <h3>Camisa Arena</h3>
-              <p>Tono neutro premium · Corte boxy contemporáneo<br>Tallas: consulta disponibilidad por WhatsApp</p>
-              <p class="price">$480</p>
-              <a href="#" class="btn-whatsapp" data-product="Camisa Arena Nativo - $480">
-                <img src="icons/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-                Pedir por WhatsApp
-              </a>
-            </div>
-          </div>
-          <!-- Agrega más productos aquí -->
+      <article class="item">
+        <div class="item-media">
+          <img src="Catalogo/CRMLF-BLACK-SHIRT800px.png" alt="Camisa Blanca" loading="lazy">
         </div>
-        <button class="slider-btn next" aria-label="Siguiente">&rarr;</button>
-      </div>
+        <div class="item-info">
+          <h3>CRMLF-NEGRA</h3>
+          <p class="desc">Boxy fit relajado · 240g algodón premium</p>
+          <div class="price-action">
+            <span class="price">$480</span>
+            <a href="#" class="btn" data-product="Camisa Blanca Nativo - $480" data-image="https://images.pexels.com/photos/8217536/pexels-photo-8217536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">Pedir →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.pexels.com/photos/6786611/pexels-photo-6786611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Camisa Arena" loading="lazy">
+        </div>
+        <div class="item-info">
+          <h3>Arena</h3>
+          <p class="desc">Tono neutro premium · Corte boxy contemporáneo</p>
+          <div class="price-action">
+            <span class="price">$480</span>
+            <a href="#" class="btn" data-product="Camisa Arena Nativo - $480" data-image="https://images.pexels.com/photos/6786611/pexels-photo-6786611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">Pedir →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.pexels.com/photos/6786611/pexels-photo-6786611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Camisa Arena" loading="lazy">
+        </div>
+        <div class="item-info">
+          <h3>Arena</h3>
+          <p class="desc">Tono neutro premium · Corte boxy contemporáneo</p>
+          <div class="price-action">
+            <span class="price">$480</span>
+            <a href="#" class="btn" data-product="Camisa Arena Nativo - $480" data-image="https://images.pexels.com/photos/6786611/pexels-photo-6786611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">Pedir →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.pexels.com/photos/8217536/pexels-photo-8217536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Camisa Blanca" loading="lazy">
+        </div>
+        <div class="item-info">
+          <h3>Blanca</h3>
+          <p class="desc">Boxy fit relajado · 240g algodón premium</p>
+          <div class="price-action">
+            <span class="price">$480</span>
+            <a href="#" class="btn" data-product="Camisa Blanca Nativo - $480" data-image="https://images.pexels.com/photos/8217536/pexels-photo-8217536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">Pedir →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Puedes duplicar <article class="item"> para más camisas -->
     </div>
   </section>
 
-  <!-- Botón Volver Arriba (solo desktop) -->
-  <button id="scroll-top" class="scroll-top" aria-label="Volver arriba">↑</button>
-
-  <!-- Footer Sin Cambios -->
   <footer class="footer">
-    <div class="container">
-      <p>Nativo · Orgullosamente sanjuaneses</p>
-      <p>Entregas a Domicilio · Pago en efectivo al recibir</p>
-    </div>
+    <p>Nativo · Orgullosamente de San Juan de los Lagos, Jalisco</p>
+    <p>Entregas rápidas en moto · Pago en efectivo al recibir</p>
   </footer>
 
   <script>
-    const phoneNumber = "523951024699";
-    // WhatsApp
-    document.querySelectorAll('.btn-whatsapp').forEach(btn => {
-      btn.addEventListener('click', e => {
+    const phone = "523951024699";
+
+    document.querySelectorAll('.btn').forEach(el => {
+      el.addEventListener('click', e => {
         e.preventDefault();
-        const product = btn.getAttribute('data-product');
-        const imageUrl = btn.getAttribute('data-image'); // Nueva línea: Obtiene la URL de la imagen
-        const text = `Hola Nativo 👋\nQuiero la:\n${product}\nVer imagen del producto: ${imageUrl}\n¿Tallas disponibles? ¿Cuándo entregan en San Juan?`; // Agregado el enlace a la imagen
-        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
-        window.open(url, '_blank');
+        const prod = el.dataset.product;
+        const img = el.dataset.image || '';
+        const imgPart = img ? `\nVer imagen: ${img}` : '';
+        const msg = `Hola Nativo 👋\nQuiero la:\n${prod}${imgPart}\n¿Tallas disponibles? ¿Cuándo entregan en San Juan?`;
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
       });
     });
-    // Parallax en hero (solo desktop)
-    if (window.innerWidth > 1024) {
-      window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallax = document.querySelector('.parallax');
-        parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
-      });
-    }
 
-    
-    // Slider productos (solo desktop)
-    if (window.innerWidth > 1024) {
-      const slider = document.querySelector('.products-grid');
-      const prevBtn = document.querySelector('.prev');
-      const nextBtn = document.querySelector('.next');
-      let scrollAmount = 0;
-      const cardWidth = 448; // Corregido: 400px (ancho card) + 48px (gap) = 448px
-      const totalCards = document.querySelectorAll('.product-card').length;
-      const maxScroll = (totalCards - 1) * cardWidth; // Límite para no scrollear más allá
-      let isScrolling = false; // Flag para prevenir clics múltiples
-    
-      nextBtn.addEventListener('click', () => {
-        if (isScrolling) return; // Ignora si ya está scrolleando
-        isScrolling = true;
-        scrollAmount = Math.min(scrollAmount + cardWidth, maxScroll); // Limita el scroll
-        slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-        setTimeout(() => isScrolling = false, 500); // Libera después de ~500ms
-      });
-    
-      prevBtn.addEventListener('click', () => {
-        if (isScrolling) return;
-        isScrolling = true;
-        scrollAmount = Math.max(scrollAmount - cardWidth, 0); // Limita a 0
-        slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-        setTimeout(() => isScrolling = false, 500);
-      });
-    }
-    // Animaciones fade-in con stagger
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, index * 200); // Stagger de 200ms
-        }
-      });
-    });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Botón scroll-to-top
-    const scrollTopBtn = document.getElementById('scroll-top');
     window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        scrollTopBtn.style.opacity = '1';
-      } else {
-        scrollTopBtn.style.opacity = '0';
-      }
-    });
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 50);
     });
   </script>
 </body>
