@@ -54,7 +54,7 @@
     </div>
     <div class="items-grid">
 
-      <article class="item">
+      <article class="item" data-path360="Catalogo/360/camisa-negra/" data-frente="CRMLF-frente.png" data-reverso="CRMLF-reverso.png">
         <div class="item-media">
           <img src="Catalogo/CRMLF-BLACK-SHIRT-CF.jpg" alt="Camisa negra, CRMLF" loading="lazy">
         </div>
@@ -68,7 +68,7 @@
         </div>
       </article>
 
-      <article class="item">
+      <article class="item" data-path360="Catalogo/360/clemont-negra/" data-frente="Clemont-frente.png" data-reverso="Clemont-reverso.png">
         <div class="item-media">
           <img src="Catalogo/Clemont-Negra-CF.jpg" alt="Camisa Negra, Clemont" loading="lazy">
         </div>
@@ -82,7 +82,7 @@
         </div>
       </article>
 
-      <article class="item">
+      <article class="item" data-path360="Catalogo/360/300-noches/" data-frente="300-noches-frente.png" data-reverso="300-noches-reverso.png">
         <div class="item-media">
           <img src="Catalogo/300-Noches-Mariposa.png" alt="Camisa Negra con Mariposa, 300 noches Natanael Cano " loading="lazy">
         </div>
@@ -96,7 +96,7 @@
         </div>
       </article>
 
-      <article class="item">
+      <article class="item" data-path360="Catalogo/360/Youngla-AOT-CF/" data-frente="Gemini-frente.png" data-reverso="Gemini-reverso.png">
         <div class="item-media">
           <img src="Catalogo/Youngla-Negra.jpg" alt="Camisa Gris" loading="lazy">
         </div>
@@ -110,7 +110,7 @@
         </div>
       </article>
 
-      <article class="item">
+      <article class="item" data-path360="Catalogo/360/youngla-aot/" data-frente="Youngla-AOT-frente.png" data-reverso="Youngla-AOT-reverso.png">
         <div class="item-media">
           <img src="Catalogo/Youngla-AOT-CF.jpg" alt="Camisa Gris" loading="lazy">
         </div>
@@ -124,7 +124,7 @@
         </div>
       </article>
 
-      <article class="item">
+      <article class="item" data-path360="Catalogo/360/gemini/" data-frente="Gemini-frente.png" data-reverso="Gemini-reverso.png">
         <div class="item-media">
           <img src="Catalogo/Youngla-Negra-AOT.jpg" alt="Camisa Gris" loading="lazy">
         </div>
@@ -147,9 +147,138 @@
     <p>Entregas rápidas en moto · Pago en efectivo al recibir</p>
   </footer>
 
+  <!-- Modal para vista del producto -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-media">
+        <img id="360-image" src="" alt="Producto 360°" style="width: 100%; height: 400px; object-fit: contain; background: transparent;">
+      </div>
+      <div class="modal-info">
+        <h3 id="modal-title"></h3>
+        <p id="modal-desc" class="desc"></p>
+        <span id="modal-price" class="price"></span>
+        <a id="modal-order-btn" href="#" class="btn">Pedir →</a>
+      </div>
+    </div>
+  </div>
+
   <script>
     const phone = "523951024699";
 
+    // Función para abrir el modal con el producto seleccionado
+    document.querySelectorAll('.item').forEach(item => {
+      item.addEventListener('click', e => {
+        console.log('Clic en artículo detectado'); // Debugging
+        e.preventDefault();
+        const path360 = item.dataset.path360; // Ruta de las imágenes 360°
+        console.log('Ruta 360:', path360); // Debugging
+        const title = item.querySelector('h3').textContent;
+        const desc = item.querySelector('.desc').textContent;
+        const price = item.querySelector('.price').textContent;
+        const orderBtn = item.querySelector('.btn');
+        const productData = orderBtn.dataset.product;
+        const imageData = orderBtn.dataset.image;
+
+        // Poblar el modal
+        document.getElementById('modal-title').textContent = title;
+        document.getElementById('modal-desc').textContent = desc;
+        document.getElementById('modal-price').textContent = price;
+        document.getElementById('modal-order-btn').dataset.product = productData;
+        document.getElementById('modal-order-btn').dataset.image = imageData;
+
+        
+        const imgElement = document.getElementById('360-image');
+        const frenteSrc = item.dataset.frente; // Nombre de la imagen frente
+        const reversoSrc = item.dataset.reverso; // Nombre de la imagen reverso
+        let currentFrame = 1; // 1 = frente, 2 = reverso
+        let isDragging = false;
+        let startX = 0;
+        let hasSwitched = false; 
+
+        
+        const updateImage = () => {
+          imgElement.src = currentFrame === 1 ? `${path360}${frenteSrc}` : `${path360}${reversoSrc}`;
+        };
+
+        
+        imgElement.addEventListener('click', (e) => {
+          if (!isDragging) { // Solo si no está arrastrando
+            currentFrame = currentFrame === 1 ? 2 : 1; // Alterna
+            updateImage();
+          }
+        });
+
+        // Evento de mouse down (iniciar arrastre)
+        imgElement.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          startX = e.clientX;
+          hasSwitched = false; // Reset para cada arrastre
+        });
+
+        
+        imgElement.addEventListener('mousemove', (e) => {
+          if (!isDragging || hasSwitched) return; // Solo si está arrastrando y no ha cambiado aún
+          const deltaX = e.clientX - startX;
+          const sensitivity = 150; // Sensibilidad mayor para evitar cambios accidentales
+          if (Math.abs(deltaX) > sensitivity) {
+            currentFrame = currentFrame === 1 ? 2 : 1; // Alterna una vez por arrastre
+            updateImage();
+            hasSwitched = true; // Evita cambios múltiples
+          }
+        });
+
+        
+        imgElement.addEventListener('mouseup', () => {
+          isDragging = false;
+        });
+
+        // Para móvil (touch)
+        imgElement.addEventListener('touchstart', (e) => {
+          isDragging = true;
+          startX = e.touches[0].clientX;
+          hasSwitched = false;
+        });
+
+        imgElement.addEventListener('touchmove', (e) => {
+          if (!isDragging || hasSwitched) return;
+          const deltaX = e.touches[0].clientX - startX;
+          const sensitivity = 150;
+          if (Math.abs(deltaX) > sensitivity) {
+            currentFrame = currentFrame === 1 ? 2 : 1;
+            updateImage();
+            hasSwitched = true;
+          }
+        });
+
+        imgElement.addEventListener('touchend', () => {
+          isDragging = false;
+        });
+
+        // Mostrar la primera imagen (frente)
+        updateImage();
+
+        // Mostrar el modal
+        document.getElementById('product-modal').style.display = 'block';
+        console.log('Modal mostrado'); // Debugging
+      });
+    });
+
+    // Cerrar el modal
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('product-modal').style.display = 'none';
+      console.log('Modal cerrado'); // Debugging
+    });
+
+    // Cerrar al hacer clic fuera del modal
+    window.addEventListener('click', e => {
+      if (e.target === document.getElementById('product-modal')) {
+        document.getElementById('product-modal').style.display = 'none';
+        console.log('Modal cerrado por clic fuera'); // Debugging
+      }
+    });
+
+    // Código original para los botones de pedido
     document.querySelectorAll('.btn').forEach(el => {
       el.addEventListener('click', e => {
         e.preventDefault();
@@ -161,6 +290,7 @@
       });
     });
 
+    // Scroll listener original
     window.addEventListener('scroll', () => {
       document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 50);
     });
