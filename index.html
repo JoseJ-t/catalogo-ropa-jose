@@ -67,7 +67,7 @@
           <p class="desc">Boxy fit relajado · 240g · 100% algodón</p>
           <div class="price-action">
             <span class="price">$600</span>
-            <a href="#" class="btn" data-product="Camisa Negra - CRMLF - Negra - $600" data-image="https://lh3.googleusercontent.com/d/1Hbul2ZgufMov2vsoVfXuSzqmad_AZz5J">Pedir →</a>
+            <a href="#" class="btn" data-product="Camisa Negra - CRMLF - Negra - $600" data-image="Camisa CRMLF Negra">Pedir →</a>
           </div>
         </div>
       </article>
@@ -370,17 +370,25 @@
     document.querySelectorAll('.btn').forEach(el => {
       el.addEventListener('click', e => {
         e.preventDefault();
-        const prod = el.dataset.product;
-        const img = el.dataset.image || '';
-        const imgPart = img ? `\nVer imagen: ${img}` : '';
-        const msg = `¡Hola! 👋\nMe interesa la:\n${prod}${imgPart}\n¿Que tallas tienen disponibles?✨ ¿Cuándo seria la entrega del producto?`;
-        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+        
+        // 1. El código "lee" el nombre que pusiste en el botón
+        const nombre = el.dataset.product || "Producto Nativo";
+        
+        // 2. El código detecta en qué parte de internet está tu página (ej. tu GitHub)
+        const base = window.location.href.split('index.html')[0];
+        
+        // 3. El código busca la imagen que está justo arriba de ese botón
+        const rutaImagen = el.closest('.item').querySelector('img').getAttribute('src');
+        
+        // 4. El código fabrica el link completo de la imagen para WhatsApp
+        const fotoLink = base + rutaImagen;
+      
+        // 5. Se arma el mensaje automático
+        const mensaje = `¡Hola Nativo! 👋\n\nMe interesa el modelo: *${nombre}*\n\nReferencia:\n${fotoLink}\n\n¿Tienen tallas disponibles? ✨`;
+      
+        // 6. Abre WhatsApp con todo listo
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(mensaje)}`, '_blank');
       });
-    });
-
-    // Scroll listener original
-    window.addEventListener('scroll', () => {
-      document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 50);
     });
   </script>
 </body>
