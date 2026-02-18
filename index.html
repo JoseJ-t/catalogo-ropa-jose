@@ -6,7 +6,7 @@
   <meta name="description" content="Nativo: Algodón premium 240g. Entregas en San Juan de los Lagos.">
   <meta property="og:title" content="Nativo · Catálogo">
   <meta property="og:description" content="Boxy Fit 240g - 100% algodon. Pago al recibir y entrega a domicilio.">
-  <meta property="og:image" content="https://josej-t.github.io/catalogo-ropa-jose/icons/logoimpreso.png">
+  <meta property="og:image" content="https://josej-t.github.io/cat-logo-ropa-nativo/icons/logoimpreso.png">
   <title>Nativo · Boxy Fit 240g</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,17 +18,17 @@
   <header class="header">
     <div class="header-inner">
       <a href="#" class="logo">
-        <img src="icons/logoimpreso.png" alt="Nativo">
+        <img src="icons/logoimpreso-r.svg" alt="Nativo">
       </a>
       <nav class="social">
         <a href="https://instagram.com/nativo.st" target="_blank" aria-label="Instagram Nativo">
-          <img src="icons/instagram.png" alt="">
+          <img src="icons/instagram.svg" alt="">
         </a>
         <a href="https://www.facebook.com/people/Nativo/61586116301114/" target="_blank" aria-label="Facebook Nativo">
-          <img src="icons/facebook.png" alt="">
+          <img src="icons/facebook.svg" alt="">
         </a>
         <a href="https://wa.me/523951024699" target="_blank" aria-label="WhatsApp Nativo">
-          <img src="icons/whatsapp.png" alt="">
+          <img src="icons/whatsapp.svg" alt="">
         </a>
       </nav>
     </div>
@@ -37,8 +37,8 @@
   <section class="hero">
     <div class="hero-media">
       <picture>
-        <source media="(min-width: 481px)" srcset="icons/iglesia.png">
-        <img src="icons/iglesia.png" alt="Basílica San Juan de los Lagos" class="hero-img">
+        <source media="(min-width: 481px)" srcset="icons/iglesia.webp">
+        <img src="icons/iglesia.webp" alt="Basílica San Juan de los Lagos" class="hero-img">
       </picture>
     </div>
     <div class="hero-layer"></div>
@@ -360,19 +360,20 @@
 
     document.querySelectorAll('.btn').forEach(el => {
       el.addEventListener('click', e => {
+        e.stopPropagation(); 
         e.preventDefault();
 
         const nombre = el.dataset.product || "Producto Nativo";
 
-        const base = window.location.href.split('index.html')[0];
+        const base = "https://josej-t.github.io/cat-logo-ropa-nativo/";
 
-        const rutaImagen = el.closest('.item').querySelector('img').getAttribute('src');
+        const itemPrincipal = el.closest('.item');
+        const rutaImagen = itemPrincipal.querySelector('img').getAttribute('src');
 
         const fotoLink = base + rutaImagen;
       
-        const mensaje = `¡Hola! 👋\n\nMe interesa el modelo: *${nombre}*\n\nReferencia:\n${fotoLink}\n\n¿Tienen tallas disponibles? ✨ ¿Cuándo podrían entregármelo en mi domicilio? 🛵`;
+        const mensaje = `¡Hola! 👋\n\nMe interesa este modelo:\n*${nombre}*\n\nReferencia de la pieza:\n${fotoLink}\n\n¿Tienen tallas disponibles? ✨\n\n *¿Cuándo podrían entregármelo en mi domicilio?*🛵`;
       
-        // 6. Abre WhatsApp con todo listo
         window.open(`https://wa.me/${phone}?text=${encodeURIComponent(mensaje)}`, '_blank');
       });
     });
